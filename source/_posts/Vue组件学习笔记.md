@@ -186,4 +186,23 @@ router.afterEach((to, from, next) => {
 3.使用router.beforeEach改变其网页的title,使用next();进入到下一个钩子当中
 4.使用router.afterEach让跳转后的回到页面顶部
 5.component里的default:默认路由写法对应视图中同时有两个<router-view> 其中一个为<router-view name="title"> 没有则为默认
+
+#### 新版vue-cli本地服务器加载本地资源
+1.在webpack.dev.conf.js文件``` const portfinder = require('portfinder') ``` 下面引入express
+```
+const express = require('express')
+const app = express()
+var appData = require('../mock/goods.json')
+var apiRoutes = express.Router()
+app.use('/api', apiRoutes)
+```
+2.在``` devServer ``` 对象中写入传输地址
+```
+    before(apiRoutes) {
+      apiRoutes.get('/api/goods', function(req, res, next) {
+        res.json(appData)
+      })
+    }
+```
+
 (简书笔记搬运 写于2017.06.29 13:45)
