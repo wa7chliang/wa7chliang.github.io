@@ -1,5 +1,6 @@
 ---
 title: MongoDB的简单使用
+date: 2017-09-12 23:36:00
 ---
 # 启动
 在命令行下进入MongoDB\bin目录(dbpath后面为数据库的位置)
