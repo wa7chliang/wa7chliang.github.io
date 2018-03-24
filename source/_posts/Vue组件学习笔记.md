@@ -206,4 +206,29 @@ app.use('/api', apiRoutes)
     }
 ```
 
+#### 使用过滤器以及计算属性
+```
+	{{ text | filterA }}
+```
+通过Vue实例添加选项filters来设置:
+```
+filter: {
+	filterA: function (value) {
+		return value++  //返回过滤后的数据
+	}
+}
+```
+计算属性:
+```
+	{{ reversedText }}
+```
+在Vue实例computed选项中:
+```
+computed: {
+  reversedText: function () {
+    return this.text.split(',').reverse().join(',') //返回data内text属性修改后的内容
+  }
+}
+```
+
 (简书笔记搬运 写于2017.06.29 13:45)
